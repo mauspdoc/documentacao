@@ -10,25 +10,25 @@ Para usar entre no terminal no sistema operacional, no sistema Windows é feito 
 
 Na tela de comando:
 
-![](/home/mauspdoc/Documentos/Educacional/Doc. Program./Python/imagens/1.png)
+![](imagens/1.png)
 
 Esse é um formato de invocar o python , o comando "-m" indica que acessaremos um *módulo* python, logo após esse comando devemos fornecer o  nome do módulo. O próprio módulo em si também pode conter opções que são acessíveis  pelo terminal, por isso qualquer comando que seja referente ao módulo deve ser escrito logo após invocar o nome dele.
 
-![](/home/mauspdoc/Documentos/Educacional/Doc. Program./Python/imagens/2.png)
+![](imagens/2.png)
 
 Nesse caso, o python receberá a informação de que deve acessar um módulo chamado pip, pois o pip em si é um pacote, logo após de invocar o pip, forneço o seguinte comando --help. Esse comando do pip fornece instruções de uso:
 
-![](/home/mauspdoc/Documentos/Educacional/Doc. Program./Python/imagens/3.png)
+![](imagens/3.png)
 
 Esses são as instruções de uso do PIP depois de entrar com o código python -m pip --help.
 
 Agora iremos listar todos os pacotes instalados no python em questão. Para isso use o comando list do pip 
 
-![](/home/mauspdoc/Documentos/Educacional/Doc. Program./Python/imagens/4.png)
+![](imagens/4.png)
 
 Ao entrar com esse comando :
 
-![](/home/mauspdoc/Documentos/Educacional/Doc. Program./Python/imagens/5.png)
+![](imagens/5.png)
 
 Veja que na própria lista é citado o pip . 
 
