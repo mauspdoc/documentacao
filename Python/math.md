@@ -195,6 +195,34 @@ math.hypot(6,8)
 >>>10.0
 ```
 
+##### Conversão de ângulos
+
+Convertendo um ângulo em radiano para graus :
+
+```python
+math.degrees(angulo_em_radiano)
+```
+
+Exemplo :
+
+```python
+math.degrees(math.pi)
+>>>180.0
+```
+
+Convertendo um ângulo em graus para radiano :
+
+```python
+math.radians(angulo_em_graus)
+```
+
+Exemplo :
+
+```python
+math.radians(180)
+>>>3.141592653589793
+```
+
 ### Fatorial
 
 Use a função do módulo math :
