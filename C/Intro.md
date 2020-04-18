@@ -68,3 +68,15 @@ Não é muito importante se preocupar o que significa isso, mas é importante qu
 >
 > Esse código ainda está correto.
 
+Dentro do código temos uma função da biblioteca stdio.h, a função printf() :
+
+```c
+printf("Ola mundo \n");
+```
+
+Esse comando exibe uma mensagem na tela "Ola mundo", veja que "\n" indica apenas que após exibir a mensagem, uma nova linha será pulada ("\n" pode ser interpretado como "new line" ou "nova linha") . Note que toda sequência de caracteres precisa ficar entre aspas duplas. 
+
+Durante a leitura do código deve ter percebido a presença de ";" (ponto e vírgula), ela indica o fim de um comando ou instrução, claro que há exceções quanto ao seu uso ou não. 
+
+> A linguagem C ignora espaços em branco, então todo o código pode ser escrito numa única linha, entretanto isso torna o código mais difícil de ser lido e interpretado por um ser humano.
+
