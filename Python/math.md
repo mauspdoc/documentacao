@@ -242,3 +242,55 @@ math.factorial(12)
 >>>479001600
 ```
 
+# Além do módulo Math
+
+## Comparação de valores
+
+### Valor máximo
+
+Existe uma função incluída no python que permite avaliar qual o maior valor de uma sequência.
+
+```python
+max(<argumentos>)
+```
+
+No exemplo a seguir, a função max() irá avaliar qual é o maior número da lista :
+
+```python
+lista = [1,2,3,5,10,20,15]
+print(max(lista))
+# 20
+```
+
+Caso queira fornecer diretamente os valores para a função :
+
+```python
+print(max(1,2,3,5,10,20,15))
+# 20
+```
+
+
+
+### Valor mínimo
+
+Existe uma função incluída no python que permite avaliar qual o menor valor de uma sequência.
+
+```python
+min(<argumentos>)
+```
+
+No exemplo a seguir, a função max() irá avaliar qual é o maior número da lista :
+
+```python
+lista = [15,20,5]
+print(min(lista))
+# 5
+```
+
+Caso queira fazer diretamente pela função :
+
+```python
+print(min(15,20,5))
+# 5
+```
+
