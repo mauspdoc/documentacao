@@ -89,3 +89,117 @@ Cuidados importantes :
 > ```
 >
 > Temos dois ponteiros : a, b ; uma variável do tipo int : c.
+
+# Inicialização E Atribuição
+
+Se um ponteiro não for inicializado ( não conter nenhum endereço), ele aponta para um lugar indefinido, isso ocorre quando um ponteiro é apenas declarado:
+
+![](imagens/7.png)
+
+> Um ponteiro pode apontar para "lugar nenhum" , também conhecido pelo valor NULL.
+>
+> Para isso há duas formas de se fazer.
+>
+> A primeira forma é atribuir o valor constante NULL para um ponteiro :
+>
+> ```C
+> int *p = NULL;
+> ```
+>
+> A segunda forma é atribuir o valor inteiro 0 para o ponteiro :
+>
+> ```c
+> int *p = 0;
+> ```
+>
+> ![](imagens/8.png)
+>
+> O seguinte código ilustra uma forma de observar ao executar um programa :
+>
+> ```c
+>   #include <stdio.h>
+> 
+> int main(void) {
+>   int *a,*b; // Declaramos dois ponteiros a e b
+>   a = NULL; // Apontamos o ponteiro a para lugar nenhum
+>   b = 0; // Apontamos o ponteiro b para lugar nenhum
+>   
+>   printf("O ponteiro a ponta para %p \n",a);// %p exibe valores hexadecimal
+>   printf("O ponteiro b aponta para %p \n",b); 
+> }
+> ```
+>
+> O resultado deve ser algo parecido com o seguinte :
+>
+> ![](imagens/9.png)
+
+## Operador de endereçamento ( & )
+
+O operador & retorna o endereço de alguma variável.
+
+>  Um teste rápido para ver o operador em prática :
+>
+> ```c
+> #include <stdio.h>
+> 
+> int main(){
+> 	int n = 4;
+> 	printf("O local da variavel n : %p \n",&n);
+> }
+> ```
+>
+> O esperado ao executar é receber o endereço onde a variável n se encontra :
+>
+> ![](imagens/10.png)
+
+O processo de atribuir valores para um ponteiro é relativamente simples :
+
+```
+<tipo> * <nome-do-ponteiro> ;
+<nome-do-ponteiro> = &<variavel>
+```
+
+Exemplo :
+
+```c
+int b = 4;
+int *bPonteiro;
+bPonteiro = &b;
+```
+
+Assim temos que o ponteiro declarado bPonteiro recebe o endereço da variável *b* na linha 3.
+
+O processo pode ser direto, o exemplo acima é equivalente a :
+
+```c
+int b = 4;
+int *bPonteiro = &b;
+```
+
+> Vamos mostrar que um ponteiro realmente carrega o endereço de outra variável com o seguinte código:
+>
+> ```c
+> #include <stdio.h>
+> 
+> int main(){
+> 	int b = 10; // conteudo de b : 10
+> 	int *bPonteiro = &b; // O conteudo do ponteiro : endereco da variabel b
+> 	printf("O endereço da variabel b : %p \n",&b); 
+> 	printf("O endereço carregado pelo pointeiro *bPonteiro : %p \n",bPonteiro);
+>     printf("O endereco do ponteiro *bPonteiro : %p \n",&bPonteiro); 
+> }
+> ```
+>
+> O endereço da memória pode variar de execução para execução , o importante é notar que ambos os endereços são iguais :
+>
+> ![](imagens/11.png)
+>
+> Ponto interessante de sempre lembrar é o de que o ponteiro carrega um endereço de outra variável, entretanto, o próprio ponteiro está localizado em outra região da memória, uma região própria.
+
+
+
+## Operador de acesso ( * )
+
+O operador ( * ) acessa o conteúdo de algum endereço.
+
+ 
