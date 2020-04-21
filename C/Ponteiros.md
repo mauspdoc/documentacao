@@ -202,4 +202,19 @@ int *bPonteiro = &b;
 
 O operador ( * ) acessa o conteúdo de algum endereço.
 
+Por exemplo :
+
+```
+int c = 10;
+int *cPonteiro = &c;
+```
+
+ Temos um ponteiro cPonteiro apotando para uma variável *c* cujo valor é 10. Caso queira acessar o valor do endereço armazenado no ponteiro :
+
+```
+*cPonteiro
+```
+
+O valor retornado ao aplicar o asterisco ( * ) antes do ponteiro será 10, pois o asterisco permite acessar o valor de um determinado endereço. Então, o ponteiro carrega o endereço da variável *c*, se caso acessar esse endereço, o valor retornado será 10 ( o valor da váriavel *c*).
+
  
