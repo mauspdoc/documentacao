@@ -36,11 +36,11 @@ char * p --> Aponta para uma variável do tipo char
 
 > variável de nome p :
 >
-> int * **|p|**
+> int * **|**p**|**
 >
 > *p* é um ponteiro :
 >
-> int **|* p|**
+> int **|*** p**|**
 >
 > p é um ponteiro que aponta para um int ( inteiro ) :
 >
