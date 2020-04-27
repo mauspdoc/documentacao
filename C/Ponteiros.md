@@ -196,9 +196,39 @@ int *bPonteiro = &b;
 >
 > Ponto interessante de sempre lembrar é o de que o ponteiro carrega um endereço de outra variável, entretanto, o próprio ponteiro está localizado em outra região da memória, uma região própria.
 
+> Observação interessante:
+>
+> O nome de um array pode servir de ponteiro para o seu primeiro item. Lembre-se de que ao criar um array, a memória é alocada de forma sequencial para conter os itens.
+>
+> Veja o seguinte código, ele mostra o endereço (em octal) de cada item do array :
+>
+> ```c
+> #include <stdio.h>
+> 
+> int main(){
+> 	int num[4] = {1,2,3,4};
+> 	printf("Endereço do item 1 : %o \n",&num[0]);
+> 	printf("Endereço do item 2 : %o \n",&num[1]);
+> 	printf("Endereço do item 3 : %o \n",&num[2]);
+> 	printf("Endereço do item 4 : %o \n",&num[3]);
+> }
+> ```
+>
+> O resultado será algo parecido com :
+>
+> ![](imagens/15.png)
+>
+> Como cada inteiro é do tamanho é do tamanho de 4 bytes, logo o endereço de um item para o outro irá variar de 4 em 4. 
+>
+> Eles estão em sequência na memória :
+>
+> ![](imagens/dia_out.png)
+>
+> De quatro em quatro os espaços são ocupados.
+>
+> 
 
-
-## Operador de acesso ( * )
+## Operador de acesso / Derreferência ( * )
 
 O operador ( * ) acessa o conteúdo de algum endereço.
 
@@ -217,4 +247,55 @@ int *cPonteiro = &c;
 
 O valor retornado ao aplicar o asterisco ( * ) antes do ponteiro será 10, pois o asterisco permite acessar o valor de um determinado endereço. Então, o ponteiro carrega o endereço da variável *c*, se caso acessar esse endereço, o valor retornado será 10 ( o valor da váriavel *c*).
 
- 
+Outro exemplo :
+
+```c
+#include <stdio.h>
+
+int main(){
+	int num = 15; // Variavel num possui o conteudo 15
+	int *numPont = &num; // Ponteiro com o endereco da variavel num
+	printf("o endereco carregado pelo ponteiro tem o conteudo numerico : %i \n",*numPont);
+}
+```
+
+ Como o ponteiro carrega o endereço da variável *num* , quando acessar o endereço dessa variável num usando o asterisco ( * ), teremos o valor retornado igual a 15.
+
+Resultado :
+
+![](imagens/12.png) 
+
+> **Cuidados importantes** 
+>
+> Vamos analisar o seguinte código :
+>
+> ```c
+> int i, *p , *q; // p e q sao ponteiros que apontam para o tipo int
+> ```
+>
+> Primeira situação :
+>
+> ```c
+> p = &i; // p possui o endereco da variavel i
+> q = p // agora copiamos o endereco carregado por p para o ponteiro q
+> ```
+>
+> Estamos copiando o endereço carregado pelo ponteiro p e atribuindo esse endereço para o ponteiro q. 
+>
+> ![](imagens/13.png)
+>
+> Agora os ponteiros *q* e *p* apontam para o mesmo endereço.
+>
+> Segunda situação :
+>
+> ```c
+> *p = 1; // Altera o valor da variavel i para 1
+> *q = 2; // Altera o valor da variavel i para 2
+> ```
+>
+>  Ao usar ( * ) antes de um ponteiro declarado, o valor do endereço apontado por esse ponteiro é acessado, logo *p e *q acessam o valor da variável *i* . A variável *i* possui seu conteúdo alterado duas vezes , por isso é importante se atentar para o uso correto dos ponteiros.
+>
+> ![](imagens/14.png)
+>
+> 
+
