@@ -42,3 +42,27 @@ ola()
 
 > O return indica o que a função irá retornar ao ser chamada.
 
+# Funções Arrow
+
+Essa é uma forma de declarar funções introduzida no ES6.
+
+```javascript
+let nomedafuncao = (argumentos) => { corpo da função }
+```
+
+ Exemplo :
+
+```javascript
+let imprimir = () => {console.log("Oie")}
+imprimir()
+>Oie
+```
+
+> O uso de chaves { } para expressões de uma linha é opcional.
+>
+> ```javascript
+> let imprimir = () => console.log("Oie")
+> ```
+>
+> Essa forma ainda é válida.
+
