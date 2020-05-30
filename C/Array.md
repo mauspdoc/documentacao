@@ -310,3 +310,89 @@ int main(){
 
 
 
+# Códigos finais
+
+## Para inverter os itens de uma lista 
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+    char lista[] = {'A','B','C','D','E'};
+    // Informacoes da lista
+    
+    // Tamanho da lista
+    int tamanho_da_lista = sizeof(lista)/sizeof(lista[0]);
+    // j --> Ultimo indice da lista 
+    int j = tamanho_da_lista - 1;
+    // i --> Primeiro indice da lista
+    int i = 0;
+    // variavel para armazenar os valores que serao trocados no intuito de saber o valor passado
+    int variavel_temporaria;
+    while(i < j){
+        // Guardando o valor do item que sera alterado para ter ideia do seu valor passado
+        variavel_temporaria = lista[i];
+        // Primeiro item alterado
+        lista[i] = lista[j];
+        // Segundo item alterado com base no valor passado do primeiro item
+        // Esse valor passado esta armazenado na variavel temporaria
+        lista[j] = variavel_temporaria;
+
+        // Incremento
+        i++;
+        // Decrescimo
+        j--;
+    }
+    
+    // Exibindo a lista
+    printf("lista:");
+    for (size_t i = 0; i < tamanho_da_lista ; i++)
+    {
+        printf("%c",lista[i]);
+    }
+}
+```
+
+## Eco do programa
+
+```c
+#include <stdio.h>
+
+/* ->|Arquivo eco.c|<-
+*Objetivo :
+*----
+*Exibe no terminal os argumentos passados para o programa
+*----
+*/
+
+int main(int argsQ , char * args[]) {
+  //argsQ --> Quantidade de argumentos
+  //args --> Array de ponteiros para os argumentos 
+  // o primeiro elemento de args deve ser o nome do programa
+
+  // Checa se ha argumentos suficientes para a msg
+  if(argsQ > 1 ) {
+    
+    // Para exibir cada elemento,menos o primeiro,do array args
+    for(int i = 1; i < argsQ ; i++ ){
+      printf("%s ",args[i]);
+    }
+
+    printf("\n"); // Saltar uma linha apos exibir
+  
+  }
+  // Caso contrario, exibe uma msg padrao
+  else{
+    printf("Desculpe, tamanho insuficiente\n");
+  }
+}
+```
+
+Depois de compilado, basta executar o programa no terminal passando argumentos extras além do nome do programa :
+
+```bash
+./eco Ola pessoinha
+>Ola pessoinha
+```
+

@@ -164,3 +164,188 @@ int main(){
 > ```
 >
 > 
+
+# Curiosidade
+
+Apesar do foco do texto ser a implementação de uma estrutura de valores verdades, nativamente, sem o uso de bibliotecas como o stdbool.h, é possível notar que tudo se resume apenas a 0 (falso) ou 1 (verdade). Veja o seguinte código :
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+  int a,b; // Declaracao de variaveis
+  
+  a = 3; 
+  b = 2;
+  
+  int c = a > b; // Variavel com relacoes logicas
+  
+  // Espera-se 0 para falso e 1 para verdade ao exibir o valor da variavel c
+  printf("%d \n",c); 
+  
+}
+```
+
+  Ao executar esse código :
+
+```bash
+1
+```
+
+Logo, assume como verdade que a (3) é maior que b (2). Veja que o valor "verdade" estava armazenado na variável C.
+
+Se caso mudar a relação na variável C para "a < b" , teremos a seguinte saída :
+
+```bash
+0
+```
+
+Então, percebe-se que tudo se rodeia em cima de 0 e 1. Mas isso é seguro ? 
+
+Vamos analisar o mesmo código, porém um pouco diferente e incluir a biblioteca stdbool.h :
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+  int a,b; // Declaracao de variaveis
+  
+  a = 3; 
+  b = 2;
+  
+  bool c = a > b; // Variavel com relacoes logicas
+  
+  // Se c for verdade
+  if(c){
+    printf("resultado : a > b \n");
+  }
+  // Caso c nao seja verdade
+  else{
+    printf("resultado : a < b \n");
+  } 
+}
+```
+
+Ao executar obtemos :
+
+```bash
+resultado : a > b
+```
+
+Entretanto, por algum descuido, poderíamos ter atribuido à variável c outro valor sem ser "booleano" :
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+  int a,b; // Declaracao de variaveis
+  
+  a = 3; 
+  b = 2;
+  
+  bool c = a > b; // Variavel com relacoes logicas
+  
+  c = 2; // O "descuido" (Linha adicionada) 
+
+  // Se c for verdade
+  if(c){
+    printf("resultado : a > b \n");
+  }
+  // Caso c nao seja verdade
+  else{
+    printf("resultado : a < b \n");
+  } 
+}
+```
+
+Ao rodar esse código, o programa entede ainda como verdade nesse caso :
+
+```bash
+resultado : a > b
+```
+
+Isso pode parecer estranho, mas na verdade o tipo boolean só aceita 0 ou 1, qualquer valor que não seja 0 será interpretado como 1 mesmo assim.
+
+O seguinte código agora mostra o valor da variável C para averiguar melhor :
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+  int a,b; // Declaracao de variaveis
+  
+  a = 3; 
+  b = 2;
+  
+  bool c = a > b; // Variavel com relacoes logicas
+  
+  c = 2; // (Linha adicionada)
+
+  // Se c for verdade
+  if(c) {
+    printf("resultado : a > b \n");
+    printf("%d \n",c); // (Linha adicionada)
+  }
+  // Caso c nao seja verdade
+  else {
+    printf("resultado : a < b \n");
+    printf("%d \n",c); // (Linha adicionada)
+  } 
+}
+```
+
+Ao executar obtemos :
+
+```bash
+resultado : a > b
+1
+```
+
+Ou seja, mesmo colocando qualquer outro valor (diferente de 0) na variavel c, o programa assume como se fosse 1.
+
+Entretanto, o perigo reside em colocar 0 ou NULL como valor de c :
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+
+int main(void)
+{
+  int a,b; // Declaracao de variaveis
+  
+  a = 3; 
+  b = 2;
+  
+  bool c = a > b; // Variavel com relacoes logicas
+  
+  c = 0; // Poderia ser NULL (Linha adicionada)
+
+  // Se c for verdade
+  if(c) {
+    printf("resultado : a > b \n");
+    printf("%d \n",c); 
+  }
+  // Caso c nao seja verdade
+  else {
+    printf("resultado : a < b \n");
+    printf("%d \n",c); 
+  } 
+}
+```
+
+Ao rodar :
+
+```c
+resultado : a < b
+0
+```
+
+ Resumindo : qualquer valor diferente de zero é interpretado como verdade.
+

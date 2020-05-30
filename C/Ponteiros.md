@@ -299,3 +299,32 @@ Resultado :
 >
 > 
 
+# Arrays e Ponteiros
+
+Ponteiros e arrays não são equivalentes, um simples código pode mostrar isso :
+
+```c
+int a[5]; // Array
+int *b; // Ponteiro para int
+```
+
+Um array aloca espaço na memória para n elementos e depois devolve o endereço do primeiro elemento para a variável (isso é uma constante). Já o ponteiro cria espaço apenas para si mesmo, não o suficiente para outros elementos.
+
+> Logo, o nome de um array é um ponteiro para o primeiro elemento do array.
+>
+> Veja o seguinte código e como o nome do array pode estar sujeito ao operador " * " da mesma forma que um ponteiro :
+>
+> ```c
+> #include <stdio.h>
+> // Codigo para mostrar a equivalencia do nome de um array com um ponteiro
+> int main(void)
+> {
+>   int a[] = {1,2,3,4};
+>   printf("%d \n",*a);
+> }
+> ```
+>
+> O resultado será o valor do primeiro elemento do array.
+
+
+
